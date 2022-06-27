@@ -8,7 +8,7 @@ import chisel3.RawModule
 import firrtl.annotations.ModuleName
 import freechips.rocketchip.config.Parameters
 import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.model.{OMRegister, OMRegisterMap}
+//import freechips.rocketchip.diplomaticobjectmodel.model.{OMRegister, OMRegisterMap}
 import freechips.rocketchip.regmapper._
 import freechips.rocketchip.interrupts._
 import freechips.rocketchip.util._
@@ -22,7 +22,7 @@ import scala.math.{min,max}
 
 
 
-import freechips.rocketchip.diplomaticobjectmodel.model._
+//import freechips.rocketchip.diplomaticobjectmodel.model._
 
 /**
   *
@@ -283,7 +283,7 @@ case class WavTLRegisterNode(
 
   // Calling this method causes the matching TL2 bundle to be
   // configured to route all requests to the listed RegFields.
-  def regmap(mapping: RegField.Map*) : OMRegisterMap = {
+  def regmap(mapping: RegField.Map*) = {
     val (bundleIn, edge) = this.in(0)
     val a = bundleIn.a
     val d = bundleIn.d
@@ -326,12 +326,12 @@ case class WavTLRegisterNode(
     
     WavRegAnnos.genDVFile(address.head.base, false, mapping:_*)
     //genRegDescsJson(mapping:_*)
-    genOMRegMap(mapping:_*)
+    //genOMRegMap(mapping:_*)
   }
 
-  def genOMRegMap(mapping: RegField.Map*): OMRegisterMap = {
-    OMRegister.convert(mapping = mapping:_*)
-  }
+  //def genOMRegMap(mapping: RegField.Map*): OMRegisterMap = {
+  //  OMRegister.convert(mapping = mapping:_*)
+  //}
 
   def genRegDescsJson(mapping: RegField.Map*) {
     // Dump out the register map for documentation purposes.
